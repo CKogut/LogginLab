@@ -34,6 +34,7 @@ public class LogginLabTest {
 
     // Test for thresholdReached, which returns true if argument 'limit' is over the threshold.
     // Using same final limit as thresholdExceeds(). For loop runs while the threshold is over limit and stops when reached
+    // Submitting as finished
 
     @org.junit.Test
     public void thresholdReached() {
