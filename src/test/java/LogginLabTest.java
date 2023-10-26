@@ -23,7 +23,7 @@ public class LogginLabTest {
 
         for (Integer i = 1; i <= finalLimit; i++) {
             if (lab.thresholdExceeds(i)) {
-                logger.log(Level.INFO, "Threshold not reached! It is "+i);
+                logger.log(Level.INFO, "Threshold not reached! It is "+ i);
                 assertTrue(lab.thresholdExceeds(i));
             } else {
                 logger.log(Level.INFO, "Threshold finally reached!");
@@ -31,4 +31,26 @@ public class LogginLabTest {
             }
         }
     }
+
+    // Test for thresholdReached, which returns true if argument 'limit' is over the threshold.
+    // Using same final limit as thresholdExceeds(). For loop runs while the threshold is over limit and stops when reached
+
+    @org.junit.Test
+    public void thresholdReached() {
+        Integer finalLimit = 5;
+
+        LogginLab lab = new LogginLab();
+        lab.setThreshold(finalLimit);
+
+        for (Integer i = 10; i >= (finalLimit); i--) {
+            if (lab.thresholdReached(i)) {
+                logger.log(Level.INFO, "Threshold exceeded! It is " + i);
+                assertTrue(lab.thresholdReached(i));
+            } else {
+                logger.log(Level.INFO, "Threshold Reached");
+                assertFalse(lab.thresholdReached(i));
+            }
+        }
+    }
+
 }
